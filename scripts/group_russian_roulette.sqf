@@ -33,6 +33,7 @@ local _ammoCount = player ammo _secondary;
 local _odds = _ammoCount; //Change this if you want to change the odds
 local _players = [];
 local _playersInOrder = [];
+local _nameList = "";
 local _chambers = [0,0,0,0,0,0];
 local _currentPlayerIndex = 0;
 local _gameOver = false;
@@ -54,10 +55,19 @@ while {count _players > 0} do {
     _currentPlayerIndex = floor(random count _players);
     _playersInOrder set [count _playersInOrder, _players select _currentPlayerIndex];
     _players = _players - [_players select _currentPlayerIndex];
+    if (count _players > 1) then {
+        _nameList = _nameList + name (_playersInOrder select (count _playersInOrder - 1)) + ", ";
+    };
+    if (count _players == 1) then {
+        _nameList = _nameList + name (_playersInOrder select (count _playersInOrder - 1)) + " and ";
+    };
+    if (count _players == 0) then {
+        _nameList = _nameList + name (_playersInOrder select (count _playersInOrder - 1));
+    };
 };
 
 _currentPlayerIndex = 0;
-systemChat format["%1 players are playing Russian Roulette. We will go in this order: %2", count _playersInOrder, _playersInOrder];
+systemChat format["%1 players are playing Russian Roulette. We will go in this order: %2", count _playersInOrder, _nameList];
 sleep 0.5;
 systemChat format ["You load %1 bullets into random chambers and spin the wheel...", _odds];
 
@@ -89,6 +99,7 @@ while {count _playersInOrder > 1 && !_gameOver} do {
         };
     } else { // If it's another player's turn
         cutText [format["You take your revolver, spin the wheel, and aim it at %1...", name _selectedPlayer], "PLAIN DOWN"];
+        systemChat format ["The wheel lands on chamber %1", _chamberSelected + 1];
         systemChat format ["Aim your gun at %1...", name _selectedPlayer];
         waitUntil {sleep 0.1; cursorTarget == _selectedPlayer};
         systemChat format["You pull the trigger."];
@@ -122,4 +133,3 @@ while {count _playersInOrder > 1 && !_gameOver} do {
         _gameOver = true;
     };
 };
-
