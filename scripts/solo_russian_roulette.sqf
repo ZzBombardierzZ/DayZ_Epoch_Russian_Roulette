@@ -20,8 +20,7 @@
     Script: Russian Roulette Simulation for Arma 2
 
     This script allows the player and nearby friendly units to participate in a simulated game of Russian Roulette. 
-    The order of players is randomized. When it's the player's turn, they will aim the weapon at themselves. 
-    For other players, the script instructs the player to aim at the designated target. 
+    This is the solo edition, but each client can run the script at the same time to play "together". 
     Whether the gun fires is determined by the number of bullets (compared to empty chambers) and a randomized choice of chamber.
     
 */
