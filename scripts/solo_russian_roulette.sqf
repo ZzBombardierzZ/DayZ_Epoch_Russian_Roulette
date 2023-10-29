@@ -68,6 +68,7 @@ while {!_gameOver} do {
     if (_chamberHasBullet == 1) then {
         sleep 0.2;
         player fire _secondary;
+        player setDamage 1.1;
         systemChat "Game over... For you.";
         _gameOver = true;
     } else {
