@@ -1,5 +1,9 @@
 # DayZ Epoch - Russian Roulette - Rewritten by Bomb
 Originally made by Vampire and based off of a script by Grafzahl on OpenDayz.net. Original Script: https://web.archive.org/web/20160629092026/https://opendayz.net/threads/release-vampires-russian-roulette.15196/
+
+This was updated and rewritten by Bomb for TLF servers, who requested I update the script. I have decided to release it to the public for anyone who wants to use it. I have not tested this script, but it should work. If you find any bugs, please let me know and I will fix them. You can find me on Discord as Bomb99.
+
+
 ## Bomb's Changes:
 * Added a group gameplay option to allow players to play with nearby friends.
 * Completely rewrote the entire script.
@@ -56,6 +60,8 @@ Find `dayz_resetSelfActions = {` and paste this below it:
 s_player_russianr_group = -1;
 s_player_russianr_solo = -1;
 ~~~
+
+5. You'll need to likely update your Battleye scripts.txt file if you are using Battleye. I will not be covering that here.
 
 * That's it for the install.
 

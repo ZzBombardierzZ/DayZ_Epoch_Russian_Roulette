@@ -26,7 +26,7 @@ if((speed player <= 1) && _hasRevovler && _canDo && _ammoCount > 0) then {
             _nearbyRRPlayers set [count _nearbyRRPlayers,name _x];
         };
     } forEach playableUnits;
-    if (s_player_russianr_group < 0) then {
+    if (s_player_russianr_group < 0 && count _nearbyRRPlayers > 0) then {
         s_player_russianr_group = player addaction[("<t color='#ff0000'>" + format["Play Russian Roulette w/ %1",_nearbyRRPlayers] +"</t>"),"scripts\group_russian_roulette.sqf",_myWeapon,0,false,true,"", ""];
     };
     if (s_player_russianr_solo < 0) then {
