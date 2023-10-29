@@ -57,7 +57,9 @@ while {count _players > 0} do {
 };
 
 _currentPlayerIndex = 0;
-systemChat format["%1 players are playing Russian Roulette. We will go in this order: %2", count _players, _playersInOrder];
+systemChat format["%1 players are playing Russian Roulette. We will go in this order: %2", count _playersInOrder, _playersInOrder];
+sleep 0.5;
+systemChat format ["You load %1 bullets into random chambers and spin the wheel...", _odds];
 
 // Game loop: each iteration represents a player's turn
 while {count _playersInOrder > 1 && !_gameOver} do {
@@ -70,7 +72,7 @@ while {count _playersInOrder > 1 && !_gameOver} do {
     // If it's the player's turn
     if (_selectedPlayer == player) then {
         cutText [format["You take your revolver, spin the wheel, and aim it to your temple..."], "PLAIN DOWN"];
-        systemChat format ["The chamber the wheel landed on is chamber %1", _chamberSelected + 1];
+        systemChat format ["The wheel lands on chamber %1", _chamberSelected + 1];
         player playMove "ActsPercMstpSnonWpstDnon_suicide1B";
         sleep 8.2;
         systemChat format["You pull the trigger."];
@@ -82,7 +84,7 @@ while {count _playersInOrder > 1 && !_gameOver} do {
         } else {
             _nul = [objNull, player, rSAY, ["splat",50]] call RE;
             sleep 0.2;
-            player switchMove '';
+            [objNull, player, rswitchmove,""] call RE;
             player playActionNow 'stop';
         };
     } else { // If it's another player's turn
@@ -113,6 +115,10 @@ while {count _playersInOrder > 1 && !_gameOver} do {
     _ammoCount = player ammo _secondary;
     if (_ammoCount == 0 && alive player) then {
         systemChat "You have run out of ammo. Game is over.";
+        _gameOver = true;
+    };
+    if (count _playersInOrder == 1) then {
+        systemChat format["%1 won the game, but at what cost?", name (_playersInOrder select 0)];
         _gameOver = true;
     };
 };

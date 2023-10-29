@@ -41,8 +41,12 @@ for "_i" from 1 to _odds do {
 };
 
 systemChat format["Starting Russian Roulette - solo edition."];
+sleep 0.5;
 systemChat "You can still play this with friends if each friend plays the solo edition on their client as well.";
+sleep 0.25;
 systemChat "You can move to cancel the game at any time.";
+sleep 0.5;
+systemChat format ["You load %1 bullets into random chambers and spin the wheel...", _odds];
 
 // Game loop: each iteration represents a player's turn
 while {!_gameOver} do {
@@ -58,7 +62,7 @@ while {!_gameOver} do {
     };
 
     cutText [format["You take your revolver, spin the wheel, and aim it to your temple..."], "PLAIN DOWN"];
-    systemChat format ["The chamber the wheel landed on is chamber %1", _chamberSelected + 1];
+    systemChat format ["The wheel lands on chamber %1", _chamberSelected + 1];
     player playMove "ActsPercMstpSnonWpstDnon_suicide1B";
     sleep 8.2;
     systemChat format["You pull the trigger."];
@@ -70,7 +74,7 @@ while {!_gameOver} do {
     } else {
         _nul = [objNull, player, rSAY, ["splat",50]] call RE;
         sleep 0.2;
-        player switchMove '';
+        [objNull, player, rswitchmove,""] call RE;
         player playActionNow 'stop';
     };
     
