@@ -1,7 +1,7 @@
 # DayZ Epoch - Russian Roulette - Rewritten by Bomb
 Originally made by Vampire and based off of a script by Grafzahl on OpenDayz.net. Original Script: https://web.archive.org/web/20160629092026/https://opendayz.net/threads/release-vampires-russian-roulette.15196/
 
-This was updated and rewritten by Bomb for TLF servers, who requested I update the script. I have decided to release it to the public for anyone who wants to use it. I have not tested this script, but it should work. If you find any bugs, please let me know and I will fix them. You can find me on Discord as Bomb99.
+This was updated and rewritten by Bomb for TLF servers, who requested I update the script. I have decided to release it to the public for anyone who wants to use it. If you find any bugs, please let me know and I will fix them. You can find me on Discord as Bomb99.
 
 
 ## Bomb's Changes:
