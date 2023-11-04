@@ -72,7 +72,7 @@ s_player_russianr_group = -1;
 s_player_russianr_solo = -1;
 ~~~
 
-5. You'll need to likely update your Battleye scripts.txt file if you are using Battleye. I will not be covering that here.
+5. __You'll need to likely update your Battleye scripts.txt file if you are using Battleye. I will not be covering that here.__
 
 * That's it for the install.
 
