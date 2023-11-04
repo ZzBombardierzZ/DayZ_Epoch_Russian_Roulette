@@ -9,6 +9,17 @@ This was updated and rewritten by Bomb for TLF servers, who requested I update t
 * Completely rewrote the entire script.
 * Fixed some bugs.
 
+# Demo Video
+### You should watch me! - https://youtu.be/CkIUTXGNyUU
+
+## Features:
+* Players can play Russian Roulette solo or with nearby players.
+* The script will automatically detect if the player has a revolver and ammo.
+* The script will load the revolver ammo into random chambers of the revolver.
+* If playing multiplayer mode, the script will shuffle the players playing and begin a "turn" system. This will go in the same order until players die or there is only one player left.
+* Whether you're playing single player or multiplayer, at each "turn" the script will spin the revolver's cylinder and if it lands on a loaded chamber, the selected player will die when the gun fires.
+* The game ends when there the player who started the game dies or there is no ammo left.
+
 ## Install instructions:
 1. Download this repository.
 2. Copy the two SQF files from the scripts folder into a scripts folder in your mission root, ie `DayZ_Epoch_11.Chernarus` folder so the path looks like this: `mpmissions\your_instance\scripts\`
@@ -67,3 +78,4 @@ s_player_russianr_solo = -1;
 
 ## Configuration
 * This script assumes you are using revolvers with 6 bullet chambers. If you wish to change the odds of the gun firing, you can change `local _odds = _ammoCount;` in either file to whatever you want. For example, if you want the gun to fire 1/3 of the time, change it to `local _odds = 2;` (2 out of 6 chambers will fire).
+* You can add more revolvers to the `_myWeapon in ["Revolver_DZ","Colt_Python_DZ","Colt_Bull_DZ"]` but they need to have 6 bullet chambers as the script assumes that.
